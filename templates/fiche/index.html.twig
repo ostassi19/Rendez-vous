@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Fiche index{% endblock %}
+
+{% block body %}
+    <h1>Fiche index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>AntecedentMaladie</th>
+                <th>AbitudeVie</th>
+                <th>HistoireMaladie</th>
+                <th>Exploration</th>
+                <th>Diagnostic</th>
+                <th>CreatedAt</th>
+                <th>UpdatedAt</th>
+                <th>DeletedAt</th>
+                <th>IsDeleted</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for fiche in fiches %}
+            <tr>
+                <td>{{ fiche.id }}</td>
+                <td>{{ fiche.antecedentMaladie }}</td>
+                <td>{{ fiche.abitudeVie }}</td>
+                <td>{{ fiche.histoireMaladie }}</td>
+                <td>{{ fiche.exploration }}</td>
+                <td>{{ fiche.diagnostic }}</td>
+                <td>{{ fiche.createdAt ? fiche.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ fiche.updatedAt ? fiche.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ fiche.deletedAt ? fiche.deletedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ fiche.isDeleted ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('fiche_show', {'id': fiche.id}) }}">show</a>
+                    <a href="{{ path('fiche_edit', {'id': fiche.id}) }}">edit</a>
+                    <a href="{{ path('patient_show', {'id': fiche.patient.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="11">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('fiche_new') }}">Create new</a>
+{% endblock %}

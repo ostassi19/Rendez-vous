@@ -1,0 +1,10 @@
+easy_admin:
+  entities:
+    - App\Entity\Users
+    - App\Entity\Medecin
+    - App\Entity\Specialite
+    - App\Entity\Contact
+    - App\Entity\Adresse
+    - App\Entity\Fiche
+
+  site_name: 'Rendez Vous'

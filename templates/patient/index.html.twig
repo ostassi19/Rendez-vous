@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Patient index{% endblock %}
+
+{% block body %}
+    <h1>Patient index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Cin</th>
+                <th>Tel</th>
+                <th>Fixe</th>
+                <th>Email</th>
+                <th>Ville</th>
+                <th>Pays</th>
+                <th>Region</th>
+                <th>CodePostal</th>
+                <th>Id</th>
+                <th>Cnss</th>
+                <th>Cnrps</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for patient in patients %}
+            <tr>
+                <td>{{ patient.nom }}</td>
+                <td>{{ patient.prenom }}</td>
+                <td>{{ patient.cin }}</td>
+                <td>{{ patient.tel }}</td>
+                <td>{{ patient.fixe }}</td>
+                <td>{{ patient.email }}</td>
+                <td>{{ patient.ville }}</td>
+                <td>{{ patient.pays }}</td>
+                <td>{{ patient.region }}</td>
+                <td>{{ patient.codePostal }}</td>
+                <td>{{ patient.id }}</td>
+                <td>{{ patient.cnss }}</td>
+                <td>{{ patient.cnrps }}</td>
+                <td>
+                    <a href="{{ path('patient_show', {'id': patient.id}) }}">show</a>
+                    <a href="{{ path('patient_edit', {'id': patient.id}) }}">edit</a>
+                    <a href="{{ path('fiche_show_med', {'id': patient.id, 'idMedecin': 1}) }}">Fiche</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="14">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('patient_new') }}">Create new</a>
+{% endblock %}

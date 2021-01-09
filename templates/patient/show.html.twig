@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Patient{% endblock %}
+
+{% block body %}
+    <h1>Patient</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Nom</th>
+                <td>{{ patient.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ patient.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Cin</th>
+                <td>{{ patient.cin }}</td>
+            </tr>
+            <tr>
+                <th>Tel</th>
+                <td>{{ patient.tel }}</td>
+            </tr>
+            <tr>
+                <th>Fixe</th>
+                <td>{{ patient.fixe }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ patient.email }}</td>
+            </tr>
+            <tr>
+                <th>Ville</th>
+                <td>{{ patient.ville }}</td>
+            </tr>
+            <tr>
+                <th>Pays</th>
+                <td>{{ patient.pays }}</td>
+            </tr>
+            <tr>
+                <th>Region</th>
+                <td>{{ patient.region }}</td>
+            </tr>
+            <tr>
+                <th>CodePostal</th>
+                <td>{{ patient.codePostal }}</td>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{ patient.id }}</td>
+            </tr>
+            <tr>
+                <th>Cnss</th>
+                <td>{{ patient.cnss }}</td>
+            </tr>
+            <tr>
+                <th>Cnrps</th>
+                <td>{{ patient.cnrps }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('patient_index') }}">back to list</a>
+
+    <a href="{{ path('patient_edit', {'id': patient.id}) }}">edit</a>
+
+    {{ include('patient/_delete_form.html.twig') }}
+{% endblock %}
