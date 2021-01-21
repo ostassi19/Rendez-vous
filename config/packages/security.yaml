@@ -27,6 +27,16 @@ security:
                     - App\Security\TokenAuthenticator
             user_checker: App\Security\UserEnabledChecker
 
+        admin:
+            pattern: ^/
+            anonymous: true
+            form_login:
+                check_path: app_login
+                login_path: app_login
+                default_target_path: admin
+                use_referer: true
+            logout:
+                path: app_logout
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication
 
@@ -36,6 +46,13 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        - { path: ^/api, roles: IS_AUTHENTICATED_ANONYMOUSLY } # Allows accessing the Swagger UI
+        - { path: ^/api,          roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/admin,       roles: ROLE_SUPERADMIN }
+        - { path: ^/login,        roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/base,             role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/rendez/vous/ajouter,             role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/patient/ajouter,             role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/,             role: IS_AUTHENTICATED_FULLY }
+        #- { path: ^/base, roles: IS_AUTHENTICATED_FULLY } # Allows accessing the Swagger UI IS_AUTHENTICATED_ANONYMOUSLY
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }

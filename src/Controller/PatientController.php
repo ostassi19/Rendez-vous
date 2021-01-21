@@ -53,6 +53,19 @@ class PatientController extends AbstractController
     }
 
     /**
+     * @Route("/ajouter", name="patient_ajouter", methods={"GET","POST"})
+     */
+    public function ajouter(Request $request): Response
+    {
+        $patient = new Patient();
+
+        return $this->render('patient/ajouter.html.twig', [
+            'patient' => $patient,
+            //'form' => $form->createView(),
+        ]);
+    }
+
+    /**
      * @Route("/{id}", name="patient_show", methods={"GET"})
      */
     public function show(Patient $patient): Response

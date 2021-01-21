@@ -13,10 +13,10 @@ class RendezVousType extends AbstractType
     {
         $builder
             ->add('date')
-            ->add('createdAt')
-            ->add('updatedAt')
-            ->add('deletedAt')
-            ->add('isDeleted')
+            //->add('createdAt')
+            //->add('updatedAt')
+            //->add('deletedAt')
+            //->add('isDeleted')
             ->add('fiche')
         ;
     }

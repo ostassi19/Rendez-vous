@@ -87,7 +87,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 
         <!--begin::Wrapper-->
-        <div class="d-flex flex-column flex-row-fluid wrapper" id="kt_wrapper">
+        <div class="d-flex flex-column flex-row-fluid wrapper" id="kt_wrapper" style=" margin-left: 30px; ">
             <!--begin::Header-->
             <div id="kt_header" class="header  header-fixed " >
                 <!--begin::Header Wrapper-->
@@ -658,7 +658,8 @@ License: You must have a valid license purchased only from themeforest(the above
                                                                     <!--begin::Actions-->
                                                                     <div class="my-lg-0 my-1">
                                                                         <a href="#" class="btn btn-sm btn-light-primary font-weight-bolder text-uppercase mr-2">Avis</a>
-                                                                        <a type="button" class="btn btn-sm btn-primary font-weight-bolder text-uppercase" data-target="#myModal">Rendez-vous</a>
+                                                                        <a type="button" class="btn btn-sm btn-primary font-weight-bolder text-uppercase"
+                                                                           onclick="rv_({{ app.user ? app.user.id : 0 }}, {{ app.user ? app.user.roles | json_encode : '' }})">Rendez-vous</a>
                                                                     </div>
                                                                     <!--end::Actions-->
                                                                     <div id="myModal" class="modal fade" role="dialog">
@@ -2376,6 +2377,8 @@ License: You must have a valid license purchased only from themeforest(the above
 
 <!--begin::Page Scripts(used by this page)-->
 <script src="{{ asset('assets/js/pages/widgets.js?v=7.0.6') }}"></script>
+
+<script src="{{ asset('assets/js/_.js') }}"></script>
 <!--end::Page Scripts-->
 </body>
 <!--end::Body-->

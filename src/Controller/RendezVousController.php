@@ -8,6 +8,7 @@ use App\Repository\FicheRepository;
 use App\Repository\RendezVousRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -56,6 +57,37 @@ class RendezVousController extends AbstractController
             'rendez_vou' => $rendezVou,
             'form' => $form->createView(),
         ]);
+    }
+
+    /**
+     * @Route("/ajouter", name="rendez_vous_new", methods={"GET","POST"})
+     */
+    public function add(Request $request): Response
+    {
+        $user = $this->getUser();
+
+        $router = $request->attributes->get('_route');
+
+        $data = $request->query->all();
+
+        $idmedecien = $data ? $data['id_medecien'] : 0;
+
+        //echo $session->get('_router__');
+        if ($idmedecien > 0){
+
+        }
+        if ($user == null){
+
+            $session = $this->get('session');
+            $session->set('_router__', $router);
+            $session->set('_idMedicien__', $idmedecien);
+            $session->set('_role__', $data ? $data['role'] : 0);
+
+            return new Response(0);
+
+        } else {
+            return new Response(1);
+        }
     }
 
     /**

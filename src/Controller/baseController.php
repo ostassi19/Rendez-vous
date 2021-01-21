@@ -14,6 +14,7 @@ class baseController extends Controller
      */
     public function base (){
 
+        //var_dump($this->getUser());die();
         $em = $this->getDoctrine()->getManager();
         $medecins =  $em->getRepository('App:Medecin')->findAll();
         /*foreach ($medecins as $medecin){
