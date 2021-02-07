@@ -17,12 +17,12 @@ class FicheType extends AbstractType
             ->add('histoireMaladie')
             ->add('exploration')
             ->add('diagnostic')
-            ->add('createdAt')
+            /*->add('createdAt')
             ->add('updatedAt')
             ->add('deletedAt')
             ->add('isDeleted')
             ->add('patient')
-            ->add('medecin')
+            ->add('medecin')*/
         ;
     }
 

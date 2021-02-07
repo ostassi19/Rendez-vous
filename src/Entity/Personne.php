@@ -1,26 +1,17 @@
 <?php
 
-
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use App\Traits\Contact as C;
+use App\Traits\Adresse as A;
 /**
  * @ORM\MappedSuperclass()
  */
 class Personne
 {
-    use \App\Traits\Contact;
-    use \App\Traits\Adresse;
-    /*
-     * @ORM\ManyToOne(targetEntity=Adresse::class)
-     */
-    private $adresse;
-
-    /*
-     * @ORM\ManyToOne(targetEntity=Contact::class)
-     */
-    private $contact;
+    use C;
+    use A;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -36,30 +27,6 @@ class Personne
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $cin;
-
-    public function getContact(): ?Contact
-    {
-        return $this->contact;
-    }
-
-    public function setContact(?Contact $contact): self
-    {
-        $this->contact = $contact;
-
-        return $this;
-    }
-
-    public function getAdresse(): ?Adresse
-    {
-        return $this->adresse;
-    }
-
-    public function setAdresse(?Adresse $adresse): self
-    {
-        $this->adresse = $adresse;
-
-        return $this;
-    }
 
     public function getNom(): ?string
     {

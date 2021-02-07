@@ -10,21 +10,22 @@ use Symfony\Component\Routing\Annotation\Route;
 class baseController extends Controller
 {
     /**
-     * @Route("base")
+     * @Route("/accueil")
      */
     public function base (){
 
         //var_dump($this->getUser());die();
         $em = $this->getDoctrine()->getManager();
         $medecins =  $em->getRepository('App:Medecin')->findAll();
-        /*foreach ($medecins as $medecin){
-           dump( $medecin->getContact()->getEmail());die();
+
+        $roles = $this->getUser()->getRoles();
+        if ($roles[0] == 'ROLE_MEDECIN'){
+            return $this->redirect('medecin');
+        } else {
+            return $this->render('base2.html.twig', array(
+                'Medecins' => $medecins
+            ));
         }
-        dump($medecins);die();
-*/
-        return $this->render('base2.html.twig', array(
-            'Medecins'=>$medecins
-        ));
     }
 
 }

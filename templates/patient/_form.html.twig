@@ -1,4 +1,180 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
+<div class="card card-custom">
+    <div class="card-header">
+        <h3 class="card-title">
+            Ajouter Patient
+        </h3>
+    </div>
+    <!--begin::Form-->
+    <div class="card-body">
+        <form>
+        <div class="container-fluid" style="padding-top: 1em; padding-bottom: 1em">
+            <div class="row">
+                <div class="col-md-4">
+                    <label>
+                        {{ form_label(form.nom) }} <span class="text-danger">*</span>
+                    </label>
+                    {{ form_widget(form.nom) }}
+                    <!--<input type="text" class="form-control"  placeholder="Nom Patient"/>-->
+                    <span class="form-text text-muted">
+                        <small>{{ form_help(form.nom) }}</small>
+                    </span>
+                    <div class="form-error">
+                        {{ form_errors(form.nom) }}
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label>
+                        {{ form_label(form.prenom) }} <span class="text-danger">*</span>
+                    </label>
+                    {{ form_widget(form.prenom) }}
+                    <!--<input type="text" class="form-control"  placeholder="Nom Patient"/>-->
+                    <span class="form-text text-muted">
+                        <small>{{ form_help(form.prenom) }}</small>
+                    </span>
+                    <div class="form-error">
+                        {{ form_errors(form.prenom) }}
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label>
+                        {{ form_label(form.cin) }} <span class="text-danger">*</span>
+                    </label>
+                    {{ form_widget(form.cin) }}
+                    <!--<input type="text" class="form-control"  placeholder="Nom Patient"/>-->
+                    <span class="form-text text-muted">
+                        <small>{{ form_help(form.cin) }}</small>
+                    </span>
+                    <div class="form-error">
+                        {{ form_errors(form.cin) }}
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label>
+                        {{ form_label(form.tel) }} <span class="text-danger">*</span>
+                    </label>
+                    {{ form_widget(form.tel) }}
+                    <!--<input type="text" class="form-control"  placeholder="Nom Patient"/>-->
+                    <span class="form-text text-muted">
+                        <small>{{ form_help(form.tel) }}</small>
+                    </span>
+                    <div class="form-error">
+                        {{ form_errors(form.tel) }}
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label>
+                        {{ form_label(form.fixe) }} <span class="text-danger">*</span>
+                    </label>
+                    {{ form_widget(form.fixe) }}
+                    <!--<input type="text" class="form-control"  placeholder="Nom Patient"/>-->
+                    <span class="form-text text-muted">
+                        <small>{{ form_help(form.fixe) }}</small>
+                    </span>
+                    <div class="form-error">
+                        {{ form_errors(form.fixe) }}
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label>
+                        {{ form_label(form.email) }} <span class="text-danger">*</span>
+                    </label>
+                    {{ form_widget(form.email) }}
+                    <!--<input type="text" class="form-control"  placeholder="Nom Patient"/>-->
+                    <span class="form-text text-muted">
+                        <small>{{ form_help(form.email) }}</small>
+                    </span>
+                    <div class="form-error">
+                        {{ form_errors(form.email) }}
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label>
+                        {{ form_label(form.ville) }} <span class="text-danger">*</span>
+                    </label>
+                    {{ form_widget(form.ville) }}
+                    <!--<input type="text" class="form-control"  placeholder="Nom Patient"/>-->
+                    <span class="form-text text-muted">
+                        <small>{{ form_help(form.ville) }}</small>
+                    </span>
+                    <div class="form-error">
+                        {{ form_errors(form.ville) }}
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label>
+                        {{ form_label(form.pays) }} <span class="text-danger">*</span>
+                    </label>
+                    {{ form_widget(form.pays) }}
+                    <!--<input type="text" class="form-control"  placeholder="Nom Patient"/>-->
+                    <span class="form-text text-muted">
+                        <small>{{ form_help(form.pays) }}</small>
+                    </span>
+                    <div class="form-error">
+                        {{ form_errors(form.pays) }}
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label>
+                        {{ form_label(form.region) }} <span class="text-danger">*</span>
+                    </label>
+                    {{ form_widget(form.region) }}
+                    <!--<input type="text" class="form-control"  placeholder="Nom Patient"/>-->
+                    <span class="form-text text-muted">
+                        <small>{{ form_help(form.region) }}</small>
+                    </span>
+                    <div class="form-error">
+                        {{ form_errors(form.region) }}
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label>
+                        {{ form_label(form.codePostal) }} <span class="text-danger">*</span>
+                    </label>
+                    {{ form_widget(form.codePostal) }}
+                    <!--<input type="text" class="form-control"  placeholder="Nom Patient"/>-->
+                    <span class="form-text text-muted">
+                        <small>{{ form_help(form.codePostal) }}</small>
+                    </span>
+                    <div class="form-error">
+                        {{ form_errors(form.codePostal) }}
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label>
+                        {{ form_label(form.cnss) }} <span class="text-danger">*</span>
+                    </label>
+                    {{ form_widget(form.cnss) }}
+                    <!--<input type="text" class="form-control"  placeholder="Nom Patient"/>-->
+                    <span class="form-text text-muted">
+                        <small>{{ form_help(form.cnss) }}</small>
+                    </span>
+                    <div class="form-error">
+                        {{ form_errors(form.cnss) }}
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label>
+                        {{ form_label(form.cnrps) }} <span class="text-danger">*</span>
+                    </label>
+                    {{ form_widget(form.cnrps) }}
+                    <!--<input type="text" class="form-control"  placeholder="Nom Patient"/>-->
+                    <span class="form-text text-muted">
+                        <small>{{ form_help(form.cnrps) }}</small>
+                    </span>
+                    <div class="form-error">
+                        {{ form_errors(form.cnrps) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <button class="btn btn-primary mr-2">{{ button_label|default('Save')}}</button>
+            <button type="reset" class="btn btn-secondary">Cancel</button>
+        </div>
+        {{ form_errors(form) }}
+        {{ form_end(form) }}
+    </form>
+    </div>
+    <!--end::Form-->
+</div>

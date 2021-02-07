@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Patient;
 use App\Form\PatientType;
 use App\Repository\PatientRepository;
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -20,12 +21,16 @@ class PatientController extends AbstractController
      */
     public function index(PatientRepository $patientRepository): Response
     {
-        /*foreach ($patientRepository->findAll() as $patient){
-            dump($patient->getFiches());die();
-        }*/
+        $medecin = $this->getDoctrine()->getRepository('App:Medecin')->find($this->getUser()->getIdPersonne());
+        $fiches = $medecin->getFiches();
+
+        $patients = new ArrayCollection();
+        foreach ($fiches as $fiche){
+            $patients->add($fiche->getPatient());
+        }
 
         return $this->render('patient/index.html.twig', [
-            'patients' => $patientRepository->findAll(),
+            'patients' => $patients,
         ]);
     }
 
@@ -38,12 +43,14 @@ class PatientController extends AbstractController
         $form = $this->createForm(PatientType::class, $patient);
         $form->handleRequest($request);
 
+        //var_dump($form->isValid(), $patient);die();
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+
             $entityManager->persist($patient);
             $entityManager->flush();
 
-            return $this->redirectToRoute('patient_index');
+            return $this->redirectToRoute('fiche_new', ['patient', $patient->getId()]);
         }
 
         return $this->render('patient/new.html.twig', [

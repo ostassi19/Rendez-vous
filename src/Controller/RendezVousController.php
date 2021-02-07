@@ -37,6 +37,21 @@ class RendezVousController extends AbstractController
     }
 
     /**
+     * @Route("/{idPatient}/patient", name="rendez_vous_patient", methods={"GET"})
+     */
+    public function PatientRv($idPatient): Response
+    {
+        $Fiche = $this->getDoctrine()->getRepository('App:Fiche')->findOneBy(
+            ['patient' => $idPatient, 'medecin' => $this->getUser()->getIdPersonne()]);
+
+        $rvs = $Fiche->getRendezVouses();
+
+        return $this->render('rendez_vous/index.html.twig', [
+            'rendez_vouses' => $rvs,
+        ]);
+    }
+
+    /**
      * @Route("/new", name="rendez_vous_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
@@ -60,7 +75,7 @@ class RendezVousController extends AbstractController
     }
 
     /**
-     * @Route("/ajouter", name="rendez_vous_new", methods={"GET","POST"})
+     * @Route("/ajouter", name="rendez_vous_ajouter", methods={"GET","POST"})
      */
     public function add(Request $request): Response
     {

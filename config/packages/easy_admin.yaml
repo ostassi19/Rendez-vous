@@ -6,5 +6,6 @@ easy_admin:
     - App\Entity\Contact
     - App\Entity\Adresse
     - App\Entity\Fiche
+    - App\Entity\RendezVous
 
   site_name: 'Rendez Vous'

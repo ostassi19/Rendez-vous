@@ -3,9 +3,14 @@
 {% block title %}Patient index{% endblock %}
 
 {% block body %}
-    <h1>Patient index</h1>
-
-    <table class="table">
+<div class="card card-custom">
+    <div class="card-header">
+        <h3 class="card-title">
+            Liste Patient
+        </h3>
+    </div>
+    <div class="card-body">
+        <table class="table table-striped">
         <thead>
             <tr>
                 <th>Nom</th>
@@ -21,7 +26,7 @@
                 <th>Id</th>
                 <th>Cnss</th>
                 <th>Cnrps</th>
-                <th>actions</th>
+                <th>Actions &emsp;</th>
             </tr>
         </thead>
         <tbody>
@@ -41,9 +46,10 @@
                 <td>{{ patient.cnss }}</td>
                 <td>{{ patient.cnrps }}</td>
                 <td>
-                    <a href="{{ path('patient_show', {'id': patient.id}) }}">show</a>
-                    <a href="{{ path('patient_edit', {'id': patient.id}) }}">edit</a>
-                    <a href="{{ path('fiche_show_med', {'id': patient.id, 'idMedecin': 1}) }}">Fiche</a>
+                    <a type="button" class="btn btn-sm btn-success" href="{{ path('patient_show', {'id': patient.id}) }}">Afficher</a>
+                    <a type="button" class="btn btn-sm btn-warning" href="{{ path('patient_edit', {'id': patient.id}) }}">Modifier</a>
+                    <a type="button" class="btn btn-sm btn-instagram" href="{{ path('fiche_show_med', {'id': patient.id, 'idMedecin': 1}) }}">Fiche</a>
+                    <a type="button" class="btn btn-sm btn-facebook" href="{{ path('rendez_vous_patient', {'idPatient': patient.id}) }}">RV</a>
                 </td>
             </tr>
         {% else %}
@@ -53,6 +59,16 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('patient_new') }}">Create new</a>
+    </div>
+    <!--
+    <div class="card-footer">
+        <div class="row">
+            <div class="col-sm-11"></div>
+            <div class="col-sm-1">
+                <a type="button" class="btn btn-bg btn-facebook" href="{{ path('patient_new') }}">Ajouter</a>
+            </div>
+        </div>
+    </div>
+    -->
+</div>
 {% endblock %}

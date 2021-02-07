@@ -26,7 +26,7 @@ class SecurityController extends AbstractController
      */
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
-
+/*
         $user = new Users();
 
         //$user->setSalt(md5(time()));
@@ -37,6 +37,7 @@ class SecurityController extends AbstractController
         $user->setEnabled(1); //enable or disable
 
         $em = $this->getDoctrine()->getManager();
+*/
         //$em->persist($user);
         //$em->flush();
 
@@ -47,7 +48,7 @@ class SecurityController extends AbstractController
 
         // get the login error if there is one
         $session = $this->get('session')->get('_router__');
-        echo $session;
+        //echo $session;
         $error = $authenticationUtils->getLastAuthenticationError();
         // last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();

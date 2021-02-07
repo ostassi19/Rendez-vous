@@ -30,16 +30,24 @@ class FicheController extends AbstractController
      */
     public function new(Request $request): Response
     {
+        $data = $request->query->all();
+        $patient = $this->getDoctrine()->getRepository('App:Patient')->find($data[1]);
+        $medecin = $this->getDoctrine()->getRepository('App:Medecin')->find($this->getUser()->getIdPersonne());
+        //var_dump($medecin->getId());die();
         $fiche = new Fiche();
         $form = $this->createForm(FicheType::class, $fiche);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+            $fiche->setCreatedAt(new \DateTime())->setIsDeleted(false);
+            $fiche->setPatient($patient)->setMedecin($medecin);
+            //var_dump($fiche);die();
             $entityManager->persist($fiche);
             $entityManager->flush();
 
-            return $this->redirectToRoute('fiche_index');
+            return $this->redirectToRoute('fiche_show_med', array(
+                'id' => $patient->getId(), 'idMedecin' => $medecin->getId()));
         }
 
         return $this->render('fiche/new.html.twig', [
