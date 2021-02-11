@@ -21,14 +21,19 @@ class PatientController extends AbstractController
      */
     public function index(PatientRepository $patientRepository): Response
     {
+        //contient le medecin déja connecté
         $medecin = $this->getDoctrine()->getRepository('App:Medecin')->find($this->getUser()->getIdPersonne());
+        // contient les fiches d'un medecin
         $fiches = $medecin->getFiches();
-
+        //declaration d'un tableau patient
         $patients = new ArrayCollection();
+        //ajouter un patient pour chaque fiche
         foreach ($fiches as $fiche){
             $patients->add($fiche->getPatient());
         }
-
+//        dump($patients); die();
+        // la fonction va etre appliquer dans le ficher patient/index.html.twig en recupérants tous les patient d'un médecin
+        // qui ont déja une ficher
         return $this->render('patient/index.html.twig', [
             'patients' => $patients,
         ]);
@@ -37,22 +42,29 @@ class PatientController extends AbstractController
     /**
      * @Route("/new", name="patient_new", methods={"GET","POST"})
      */
+    //fonction qui permet la création d'un patient
     public function new(Request $request): Response
     {
+        //instance de la table patient
         $patient = new Patient();
+        //R2CUP2RATION TOUS LES ATTRIBUTS DE PATIENT
         $form = $this->createForm(PatientType::class, $patient);
+        // permet de gérer le traitement de la saisie du formulaire
         $form->handleRequest($request);
 
         //var_dump($form->isValid(), $patient);die();
+        //permet de savoir si le formulaire a été saisi et si de plus les règles de validations sont vérifiée
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
-
+            // persistance de l'entité patient dans manager
             $entityManager->persist($patient);
             $entityManager->flush();
-
+            // si le fomulaire a été envoyer avec succé et les données sont enregistrer dans la base alors on aura une redirection
+            // à la page de création d'un ficher qui va etre responsable à la création d'une fiche pour ce patient
             return $this->redirectToRoute('fiche_new', ['patient', $patient->getId()]);
         }
-
+        // la fonction va etre applicable dans patient/new.html.twig en récupérant deux variables (patient qui a été créer
+        // et la création de vue de formulaire)
         return $this->render('patient/new.html.twig', [
             'patient' => $patient,
             'form' => $form->createView(),

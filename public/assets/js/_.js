@@ -43,6 +43,7 @@ function patient_ajouter_(action = false) {
         url: "/patient/ajouter?id_medecien="+"&role="+"&date=&commentaire=",
         cache: !1,
         success: function(data) {
+            console.log(name, username, email, password, newpassword);
             $('#patient_a').html(data);
             $('#patient_ajouter').modal('show');
         }

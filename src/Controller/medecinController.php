@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Controller;
-
 
 use App\Entity\Medecin;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -17,28 +15,22 @@ class medecinController extends Controller
      */
     public function base (){
 
-        //var_dump($this->getUser()->getIdPersonne());die();
         $id = $this->getUser()->getIdPersonne();
         $em = $this->getDoctrine()->getManager();
         $medecin = $em->getRepository('App:Medecin')->find($id);
-
+        //cherche si le medecin connecté se trouve dans la base médecin
         if ($medecin instanceof Medecin){
+            // liste des rendez-vous d'un medecin
             $rvs = new ArrayCollection();
+            // liste des fiches d'un medecin
             foreach ($medecin->getFiches() as $key => $fiche){
+                //liste des rendez_vous dans un fiche
                 foreach ($fiche->getRendezVouses() as $rv)
-                    //
+                    //ajouter les rendez-vous d'un fiche donnée dans la table de type arrayCollection
                     $rvs->add($rv);
             }
-            //var_dump($rvs);die();
-            /*foreach ($rvs as $rv){
-              echo $rv->getFiche()->getPatient()->getNom(); die();
-            }*/
         }
-        /*foreach ($medecins as $medecin){
-           dump( $medecin->getContact()->getEmail());die();
-        }
-        dump($medecins);die();
-*/
+        //la fonction va etre applicable dans base-medecin.html.twig en récupérant deux variables (Medecin, rvs)
         return $this->render('base_medecin.html.twig', array(
             'Medecin' => $medecin,
             'rvs' => $rvs

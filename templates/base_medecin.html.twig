@@ -89,6 +89,7 @@
                                 <!--begin::Nav-->
                                 <ul class="menu-nav ">
                                     <li class="menu-item  menu-item-open menu-item-here menu-item-submenu menu-item-rel menu-item-open menu-item-here"  data-menu-toggle="click" aria-haspopup="true">
+                                        <!--appel à la fonction de base se trouvant dans medecinController pour le bouton accueil-->
                                         <a  href="{{ path('medecin-accueil') }}" class="menu-link">
                                             <span class="menu-text">Acceuil</span>
                                             <i class="menu-arrow"></i>
@@ -102,6 +103,7 @@
                                         <div class="menu-submenu menu-submenu-classic menu-submenu-left" >
                                             <ul class="menu-subnav">
                                                 <li class="menu-item  menu-item-active "  aria-haspopup="true">
+                                                    <!--appel à la fonction index se trouvant dans le ficher PatientController pour le bouton liste patient-->
                                                     <a  href="{{ path('patient_index') }}" class="menu-link">
                                                         <span class="menu-text">Liste</span>
                                                         <span class="menu-desc"></span>
