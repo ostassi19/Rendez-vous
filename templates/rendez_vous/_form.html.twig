@@ -1,4 +1,37 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
+<div class="card card-custom">
+    <div class="card-header">
+        <h3 class="card-title">
+            Ajouter Rendez Vous
+        </h3>
+    </div>
+    <!--begin::Form-->
+    <div class="card-body">
+        <form>
+        <div class="container-fluid" style="padding-top: 1em; padding-bottom: 1em">
+            <div class="row">
+                <div class="col-md-4">
+                    <label>
+                        {{ form_label(form.date) }} <span class="text-danger">*</span>
+                    </label>
+                    {{ form_widget(form.date) }}
+                    <!--<input type="text" class="form-control"  placeholder="Nom Patient"/>-->
+                    <span class="form-text text-muted">
+                        <small>{{ form_help(form.date) }}</small>
+                    </span>
+                    <div class="form-error">
+                        {{ form_errors(form.date) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <button class="btn btn-primary mr-2">{{ button_label|default('Enregistrer')}}</button>
+            <button type="reset" class="btn btn-secondary">Annuler</button>
+        </div>
+        {{ form_errors(form) }}
+        {{ form_end(form) }}
+        </form>
+    </div>
+</div>
+

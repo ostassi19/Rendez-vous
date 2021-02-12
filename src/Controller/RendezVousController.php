@@ -48,24 +48,29 @@ class RendezVousController extends AbstractController
 
         return $this->render('rendez_vous/index.html.twig', [
             'rendez_vouses' => $rvs,
+            'idPatient' => $idPatient
         ]);
     }
 
     /**
-     * @Route("/new", name="rendez_vous_new", methods={"GET","POST"})
+     * @Route("/new/{idPatient}", name="rendez_vous_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new($idPatient, Request $request): Response
     {
         $rendezVou = new RendezVous();
         $form = $this->createForm(RendezVousType::class, $rendezVou);
         $form->handleRequest($request);
 
+        $fiche = $this->getDoctrine()->getRepository('App:Fiche')->findOneBy(
+            ['medecin' => $this->getUser()->getIdPersonne(), 'patient' => $idPatient]);
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+            $rendezVou->setFiche($fiche);
+            var_dump($fiche->getPatient()->getNom());
             $entityManager->persist($rendezVou);
             $entityManager->flush();
 
-            return $this->redirectToRoute('rendez_vous_index');
+            return $this->redirectToRoute('medecin-accueil');
         }
 
         return $this->render('rendez_vous/new.html.twig', [
