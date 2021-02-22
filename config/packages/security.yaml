@@ -35,8 +35,10 @@ security:
                 login_path: app_login
                 default_target_path: admin
                 use_referer: true
+                target_path_parameter: go_to
             logout:
                 path: app_logout
+                target: /accueil
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication
 
@@ -49,7 +51,8 @@ security:
         - { path: ^/api,          roles: IS_AUTHENTICATED_FULLY }
         - { path: ^/admin,       roles: ROLE_SUPERADMIN }
         - { path: ^/login,        roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/base,             role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/accueil,             role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/apropos,             role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/rendez/vous/ajouter,             role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/patient/ajouter,             role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/,             role: IS_AUTHENTICATED_FULLY }

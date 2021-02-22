@@ -48,8 +48,9 @@
                 <td>
                     <a type="button" class="btn btn-sm btn-success" href="{{ path('patient_show', {'id': patient.id}) }}">Afficher</a>
                     <a type="button" class="btn btn-sm btn-warning" href="{{ path('patient_edit', {'id': patient.id}) }}">Modifier</a>
+                    <a type="button" class="btn btn-sm btn-warning" href="{{ path('patient_delete', {'id': patient.id}) }}">Supprimer</a>
                     <a type="button" class="btn btn-sm btn-instagram" href="{{ path('fiche_show_med', {'id': patient.id, 'idMedecin': 1}) }}">Fiche</a>
-                    <a type="button" class="btn btn-sm btn-facebook" href="{{ path('rendez_vous_patient', {'idPatient': patient.id}) }}">RV</a>
+                    <a type="button" class="btn btn-sm btn-facebook" href="{{ path('rendez_vous_patient', {'idPatient': patient.id, 'idMedecin' : app.user.idPersonne}) }}">RV</a>
                 </td>
             </tr>
         {% else %}

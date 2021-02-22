@@ -90,10 +90,12 @@
                                 <ul class="menu-nav ">
                                     <li class="menu-item  menu-item-open menu-item-here menu-item-submenu menu-item-rel menu-item-open menu-item-here"  data-menu-toggle="click" aria-haspopup="true">
                                         <!--appel à la fonction de base se trouvant dans medecinController pour le bouton accueil-->
+
                                         <a  href="{{ path('medecin-accueil') }}" class="menu-link">
                                             <span class="menu-text">Acceuil</span>
                                             <i class="menu-arrow"></i>
                                         </a>
+
                                     </li>
                                     <li class="menu-item menu-item-submenu menu-item-rel"  data-menu-toggle="click" aria-haspopup="true">
                                         <a  href="javascript:;" class="menu-link menu-toggle">
@@ -110,6 +112,7 @@
                                                     </a>
                                                 </li>
                                                 <li class="menu-item "  aria-haspopup="true">
+                                                    <!-- appel à la fonction ajouter patient se trouvant dans patienController pour le bouton ajouter patient-->
                                                     <a target="_blank" href="{{ path('patient_new') }}" class="menu-link ">
                                                         <span class="menu-text">Ajouter</span>
                                                         <span class="menu-desc"></span>
@@ -304,6 +307,7 @@
                                             <div class="row">
                                                 <!--begin::Col-->
                                                 <div class="col-lg-12">
+                                                    <!--boucle pour sur les renvdez-vous apporter tous les rendez-vous dans l'acceuil-->
                                                     {% for rv in rvs %}
                                                         <div class="card card-custom gutter-b">
                                                             <div class="card-body">
@@ -369,39 +373,14 @@
 
                                                                             <!--begin::Actions-->
                                                                             <div class="my-lg-0 my-1">
+                                                                                <!--appel a la fonction patient show pour présenter tous les information du patient la fonction se trouve dans patientController-->
                                                                                 <a href="{{ path('patient_show', {'id': rv.fiche.patient.id }) }}" class="btn btn-sm btn-light-primary font-weight-bolder text-uppercase mr-2">Patient</a>
                                                                                 <a type="button" class="btn btn-sm btn-primary font-weight-bolder text-uppercase"
                                                                                    href="{{ path('fiche_show', {'id': rv.fiche.id}) }}">Fiche</a>
+                                                                                <a type="button" class="btn btn-sm btn-primary font-weight-bolder text-uppercase"
+                                                                                   href="{{ path('rendez_vous_patient', {'idPatient': rv.fiche.patient.id, 'idMedecin' : rv.fiche.medecin.id}) }}">RV</a>
                                                                             </div>
                                                                             <!--end::Actions-->
-                                                                            <div id="myModal" class="modal fade" role="dialog">
-                                                                                <div class="modal-dialog">
-                                                                                    <div class="modal-content">
-                                                                                        <div class="modal-header">
-                                                                                            <h4 class="modal-title">Ajouter Catégorie</h4>
-                                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                                                <span aria-hidden="true">×</span>
-                                                                                            </button>
-                                                                                        </div>
-                                                                                        <div class="modal-body">
-                                                                                            <div class="form-group">
-                                                                                                <label>Numéro</label>
-                                                                                                <input type="text" class="form-control" placeholder="Enter ...">
-                                                                                            </div>
-
-                                                                                            <div class="form-group">
-                                                                                                <label>Nom</label>
-                                                                                                <input type="text" class="form-control" placeholder="Enter ...">
-                                                                                            </div>
-
-                                                                                        </div>
-                                                                                        <div class="modal-footer justify-content-between">
-                                                                                            <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                                                                                            <button type="button" class="btn btn-primary">Envoyer</button>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
                                                                         </div>
                                                                         <!--end::Title-->
 
@@ -410,7 +389,6 @@
                                                                             <!--begin::Description-->
                                                                             <div class="flex-grow-1 font-weight-bold text-dark-50 py-2 py-lg-2 mr-5">
                                                                                 I distinguish three main text objectives could be merely to inform people.<br/>
-                                                                                A second could be persuade people. You want people to bay objective.
                                                                             </div>
                                                                             <!--end::Description-->
 

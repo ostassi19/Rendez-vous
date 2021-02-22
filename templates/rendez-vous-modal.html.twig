@@ -1,0 +1,32 @@
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Ajouter Rendez-vous</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Date</label>
+                    <select class="form-control form-control-lg" id="heure_rv" onchange="rv_libre()">
+                        <option>All</option>
+                        {% for date in Dates %}
+                            <option value="{{ date.id }}">{{ date.date |date('Y-m-d') }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="form-group" id="rv_libre">
+
+                </div>
+
+            </div>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                <button type="button" class="btn btn-primary" onclick="envoyer_rv()" >Envoyer</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -16,6 +16,9 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Users implements UserInterface
 {
+    const ROLE_PATIENT = ['ROLE_PATIENT'];
+    const ROLE_MEDECIN = ['ROLE_MEDECIN'];
+    const ROLE_SUPERADMIN = ['ROLE_SUPERADMIN'];
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -253,5 +256,10 @@ class Users implements UserInterface
     public function eraseCredentials()
     {
         // TODO: Implement eraseCredentials() method.
+    }
+
+    public function getEnabled(): ?bool
+    {
+        return $this->enabled;
     }
 }

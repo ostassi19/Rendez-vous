@@ -89,7 +89,7 @@ class FicheController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('fiche_index');
+            return $this->redirectToRoute('fiche_index_med', ['idMedecin' => $this->getUser()->getIdPersonne()]);
         }
 
         return $this->render('fiche/edit.html.twig', [

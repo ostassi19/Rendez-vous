@@ -48,103 +48,34 @@
         </form>
         <!--end::Form-->
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    {#<script src="{{ asset('assets/js/pages/crud/forms/widgets/bootstrap-datetimepicker.js?v=7.0.6') }}"></script>#}
-    <script>
-        // Class definition
-
-        var KTBootstrapDatetimepicker = function () {
-            // Private functions
-            var baseDemos = function () {
-                // Demo 1
-                $('#kt_datetimepicker_1').datetimepicker();
-
-                // Demo 2
-                $('#kt_datetimepicker_2').datetimepicker({
-                    locale: 'de'
-                });
-
-                // Demo 3
-                $('#kt_datetimepicker_3').datetimepicker({
-                    format: 'L'
-                });
-
-                // Demo 4
-                $('#kt_datetimepicker_4').datetimepicker({
-                    format: 'LT'
-                });
-
-                // Demo 5
-                $('#kt_datetimepicker_5').datetimepicker();
-
-                // Demo 6
-                $('#kt_datetimepicker_6').datetimepicker({
-                    defaultDate: '01/11/2021',
-                    disabledDates: [
-                        moment('01/13/2021'),
-                        //new Date(2021, 11 - 1, 21, 10, 30   ),
-                        '02/01/2021 00:53'
-                    ],
-                    disabledHours: [
-                        new Date(2021, 11 - 1, 21, 10, 30   ),
-                    ]
-                });
-
-                // Demo 7
-                $('#kt_datetimepicker_7_1').datetimepicker();
-                $('#kt_datetimepicker_7_2').datetimepicker({
-                    useCurrent: false
-                });
-
-                $('#kt_datetimepicker_7_1').on('change.datetimepicker', function (e) {
-                    $('#kt_datetimepicker_7_2').datetimepicker('minDate', e.date);
-                });
-                $('#kt_datetimepicker_7_2').on('change.datetimepicker', function (e) {
-                    $('#kt_datetimepicker_7_1').datetimepicker('maxDate', e.date);
-                });
-
-                // Demo 8
-                $('#kt_datetimepicker_8').datetimepicker({
-                    inline: true,
-                });
-            }
-
-            var modalDemos = function () {
-                // Demo 9
-                $('#kt_datetimepicker_9').datetimepicker();
-
-                // Demo 10
-                $('#kt_datetimepicker_10').datetimepicker({
-                    locale: 'de'
-                });
-
-                // Demo 11
-                $('#kt_datetimepicker_11').datetimepicker({
-                    format: 'L'
-                });
-            }
-
-            var validationDemos = function () {
-                // Demo 12
-                $('#kt_datetimepicker_12').datetimepicker();
-
-                // Demo 13
-                $('#kt_datetimepicker_13').datetimepicker();
-            }
-
-            return {
-                // Public functions
-                init: function() {
-                    baseDemos();
-                    modalDemos();
-                    validationDemos();
-                }
-            };
-        }();
-
-        jQuery(document).ready(function() {
-            KTBootstrapDatetimepicker.init();
-        });
-    </script>
 {% endblock %}
+
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Ajouter Catégorie</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Numéro</label>
+                    <input type="text" class="form-control" placeholder="Enter ...">
+                </div>
+
+                <div class="form-group">
+                    <label>Nom</label>
+                    <input type="text" class="form-control" placeholder="Enter ...">
+                </div>
+
+            </div>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                <button type="button" class="btn btn-primary">Envoyer</button>
+            </div>
+        </div>
+    </div>
+</div>

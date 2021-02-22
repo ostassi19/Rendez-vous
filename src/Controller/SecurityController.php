@@ -26,30 +26,27 @@ class SecurityController extends AbstractController
      */
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
-/*
-        $user = new Users();
-
-        //$user->setSalt(md5(time()));
-        $pass = $this->passwordEncoder->encodePassword($user, '123');
-        $user->setEmail('eddine.aa@gmail.com');
-        $user->setPassword($pass)->setName('amani')->setRoles(['ROLE_SUPERADMIN'])
-            ->setIdPersonne(1)->setUsername('amani');
-        $user->setEnabled(1); //enable or disable
 
         $em = $this->getDoctrine()->getManager();
-*/
-        //$em->persist($user);
-        //$em->flush();
 
-        //return new Response('Sucessful');
-        // if ($this->getUser()) {
-        //     return $this->redirectToRoute('target_path');
-        // }
+        try {
+            $roles = $this->getUser() ? $this->getUser()->getRoles() : null;
+            if($roles[0] == 'ROLE_SUPERADMIN'){
+                return $this->redirect('easyadmin');
+            }
+            elseif ($roles[0] == 'ROLE_MEDECIN'){
+                return $this->redirect('medecin');}
+                elseif ($roles[0] == 'ROLE_PATIENT')
+                return $this->redirect('accueil');
+            }
+        catch (\Exception $exception){
 
-        // get the login error if there is one
+        }
+
         $session = $this->get('session')->get('_router__');
         //echo $session;
         $error = $authenticationUtils->getLastAuthenticationError();
+        var_dump($error ? $error->getMessage(): '');
         // last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
         return $this->render('security/login.html.twig', ['last_username' => $lastUsername, 'error' => $error]);

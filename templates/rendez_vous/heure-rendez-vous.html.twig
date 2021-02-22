@@ -1,0 +1,6 @@
+<label>Heure</label>
+<select class="form-control form-control-lg" id="heure">
+    {% for rv in rvs %}
+        <option value="{{ rv.id }}">{{ rv.heure |date('H:i') }}</option>
+    {% endfor %}
+</select>

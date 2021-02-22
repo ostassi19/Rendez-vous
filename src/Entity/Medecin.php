@@ -51,9 +51,15 @@ class Medecin extends Personne
      */
     private $fiches;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Date::class, mappedBy="medecin")
+     */
+    private $dates;
+
     public function __construct()
     {
         $this->fiches = new ArrayCollection();
+        $this->dates = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -106,5 +112,35 @@ class Medecin extends Personne
     public function __toString()
     {
         return $this->getNom();
+    }
+
+    /**
+     * @return Collection|Date[]
+     */
+    public function getDates(): Collection
+    {
+        return $this->dates;
+    }
+
+    public function addDate(Date $date): self
+    {
+        if (!$this->dates->contains($date)) {
+            $this->dates[] = $date;
+            $date->setMedecin($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDate(Date $date): self
+    {
+        if ($this->dates->removeElement($date)) {
+            // set the owning side to null (unless already changed)
+            if ($date->getMedecin() === $this) {
+                $date->setMedecin(null);
+            }
+        }
+
+        return $this;
     }
 }

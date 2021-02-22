@@ -41,6 +41,7 @@ class Fiche
     /**
      * @ORM\Column(type="text", nullable=true)
      */
+    //une exploration fonctionnelle est un examen destiné à apprécier la manière dont un organe assure sa fonction.
     private $exploration;
 
     /**

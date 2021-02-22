@@ -22,31 +22,25 @@ class RendezVous
     private $id;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="time")
      */
-    private $date;
+    private $heure;
 
     /**
      * @ORM\ManyToOne(targetEntity=Fiche::class, inversedBy="rendezVouses")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $fiche;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Date::class, inversedBy="rendezVouses")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $date;
 
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getDate(): ?\DateTimeInterface
-    {
-        return $this->date;
-    }
-
-    public function setDate(\DateTimeInterface $date): self
-    {
-        $this->date = $date;
-
-        return $this;
     }
 
     public function getFiche(): ?Fiche
@@ -57,6 +51,35 @@ class RendezVous
     public function setFiche(?Fiche $fiche): self
     {
         $this->fiche = $fiche;
+
+        return $this;
+    }
+
+    public function getDate(): ?Date
+    {
+        return $this->date;
+    }
+
+    public function setDate(?Date $date): self
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    function __toString()
+    {
+        return $this->getHeure()->format('H:i');
+    }
+
+    public function getHeure(): ?\DateTimeInterface
+    {
+        return $this->heure;
+    }
+
+    public function setHeure(\DateTimeInterface $heure): self
+    {
+        $this->heure = $heure;
 
         return $this;
     }

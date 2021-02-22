@@ -1,4 +1,90 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
+<div class="card card-custom">
+    <div class="card-header">
+        <h3 class="card-title">
+            Ajouter Fiche
+        </h3>
+    </div>
+    <!--begin::Form-->
+    <div class="card-body">
+        <form>
+            <div class="container-fluid" style="padding-top: 1em; padding-bottom: 1em">
+                <div class="row">
+                    <div class="col-md-4">
+                        <label>
+                            {{ form_label(form.antecedentMaladie) }} <span class="text-danger">*</span>
+                        </label>
+                        {{ form_widget(form.antecedentMaladie) }}
+                        <!--<input type="text" class="form-control"  placeholder="Nom Patient"/>-->
+                        <span class="form-text text-muted">
+                        <small>{{ form_help(form.antecedentMaladie) }}</small>
+                    </span>
+                        <div class="form-error">
+                            {{ form_errors(form.antecedentMaladie) }}
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label>
+                            {{ form_label(form.abitudeVie) }} <span class="text-danger">*</span>
+                        </label>
+                        {{ form_widget(form.abitudeVie) }}
+                        <!--<input type="text" class="form-control"  placeholder="Nom Patient"/>-->
+                        <span class="form-text text-muted">
+                        <small>{{ form_help(form.abitudeVie) }}</small>
+                    </span>
+                        <div class="form-error">
+                            {{ form_errors(form.abitudeVie) }}
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label>
+                            {{ form_label(form.histoireMaladie) }} <span class="text-danger">*</span>
+                        </label>
+                        {{ form_widget(form.histoireMaladie) }}
+                        <!--<input type="text" class="form-control"  placeholder="Nom Patient"/>-->
+                        <span class="form-text text-muted">
+                        <small>{{ form_help(form.histoireMaladie) }}</small>
+                    </span>
+                        <div class="form-error">
+                            {{ form_errors(form.histoireMaladie) }}
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label>
+                            {{ form_label(form.exploration) }} <span class="text-danger">*</span>
+                        </label>
+                        {{ form_widget(form.exploration) }}
+                        <!--<input type="text" class="form-control"  placeholder="Nom Patient"/>-->
+                        <span class="form-text text-muted">
+                        <small>{{ form_help(form.exploration) }}</small>
+                    </span>
+                        <div class="form-error">
+                            {{ form_errors(form.exploration) }}
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label>
+                            {{ form_label(form.diagnostic) }} <span class="text-danger">*</span>
+                        </label>
+                        {{ form_widget(form.diagnostic) }}
+                        <!--<input type="text" class="form-control"  placeholder="Nom Patient"/>-->
+                        <span class="form-text text-muted">
+                        <small>{{ form_help(form.diagnostic) }}</small>
+                    </span>
+                        <div class="form-error">
+                            {{ form_errors(form.diagnostic) }}
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-primary mr-2">{{ button_label|default('Save')}}</button>
+                <button type="reset" class="btn btn-secondary">Cancel</button>
+            </div>
+            {{ form_errors(form) }}
+            {{ form_end(form) }}
+        </form>
+    </div>
+    <!--end::Form-->
+</div>
