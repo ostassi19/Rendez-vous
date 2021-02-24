@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit RendezVous{% endblock %}
+{% block title %}Modifier Rendez-vous{% endblock %}
 
 {% block body %}
-    <h1>Edit RendezVous</h1>
+    <h1>Modifier Rendez-vous</h1>
 
-    {{ include('rendez_vous/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('rendez_vous/_form.html.twig', {'button_label': 'modifier'}) }}
 
     <a href="{{ path('rendez_vous_index') }}">back to list</a>
 

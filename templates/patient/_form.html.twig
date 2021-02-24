@@ -129,7 +129,7 @@
                 </div>
                 <div class="col-md-4">
                     <label>
-                        {{ form_label(form.codePostal) }} <span class="text-danger">*</span>
+                        {{ form_label(form.codePostal) }}
                     </label>
                     {{ form_widget(form.codePostal) }}
                     <!--<input type="text" class="form-control"  placeholder="Nom Patient"/>-->
@@ -169,8 +169,8 @@
             </div>
         </div>
         <div class="card-footer">
-            <button class="btn btn-primary mr-2">{{ button_label|default('Save')}}</button>
-            <button type="reset" class="btn btn-secondary">Cancel</button>
+            <button class="btn btn-primary mr-2">{{ button_label|default('Envoyer')}}</button>
+            <button type="reset" class="btn btn-secondary">Annuler</button>
         </div>
         {{ form_errors(form) }}
         {{ form_end(form) }}

@@ -35,6 +35,7 @@ class PatientController extends AbstractController
         foreach ($fiches as $fiche){
             $patients->add($fiche->getPatient());
         }
+
 //        dump($patients); die();
         // la fonction va etre appliquer dans le ficher patient/index.html.twig en recupérants tous les patient d'un médecin
         // qui ont déja une ficher
@@ -169,15 +170,16 @@ class PatientController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="patient_delete", methods={"DELETE"})
+     * @Route("/{id}/delete", name="patient_delete", methods={"GET"})
      */
     public function delete(Request $request, Patient $patient): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$patient->getId(), $request->request->get('_token'))) {
+        dump($request->request->get('_token'), $this->isCsrfTokenValid('delete'.$patient->getId(), $request->request->get('_token'))); die();
+        //if ($this->isCsrfTokenValid('delete'.$patient->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($patient);
             $entityManager->flush();
-        }
+        //}
 
         return $this->redirectToRoute('patient_index');
     }

@@ -29,30 +29,32 @@ class PatientType extends AbstractType
                 ]
             ])
             ->add('cin', TextType::class, [
+                // juste 7otha lbara mil att ok fhemtek bie
+                'required'   => false,
+                'empty_data' => 'CIN Patient',
                 'attr' => [
                     'class' => 'form-control',
-                    'required'   => true,
-                    'empty_data' => 'Nom Patient',
                 ]
             ])
             ->add('tel', TextType::class, [
+                'required'   => false,
+                'empty_data' => 'Num777 ',
                 'attr' => [
                     'class' => 'form-control',
-                    'required'   => true,
-                    'empty_data' => 'Nom Patient',
+
                 ]
             ])
             ->add('fixe', TextType::class, [
+                'required'   => false,
                 'attr' => [
                     'class' => 'form-control',
-                    'required'   => true,
                     'empty_data' => 'Nom Patient',
                 ]
             ])
             ->add('email', EmailType::class, [
+                'required'   => false,
                 'attr' => [
                     'class' => 'form-control',
-                    'required'   => true,
                     'empty_data' => 'Nom Patient',
                 ]
             ])
@@ -78,23 +80,23 @@ class PatientType extends AbstractType
                 ]
             ])
             ->add('codePostal', TextType::class, [
+                'required'   => false,
                 'attr' => [
                     'class' => 'form-control',
-                    'required'   => true,
                     'empty_data' => 'Nom Patient',
                 ]
             ])
             ->add('cnss', TextType::class, [
+                'required'   => false,
                 'attr' => [
                     'class' => 'form-control',
-                    'required'   => false,
                     'empty_data' => 'Nom Patient',
                 ]
             ])
             ->add('cnrps', TextType::class, [
+                'required'   => false,
                 'attr' => [
                     'class' => 'form-control',
-                    'required'   => false,
                     'empty_data' => 'Nom Patient',
                 ]
             ])

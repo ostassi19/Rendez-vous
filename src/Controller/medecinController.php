@@ -32,12 +32,16 @@ class medecinController extends Controller
             }
         }*/
         $d = $em->getRepository('App:Date')->findOneBy(['date' => new \DateTime(), 'medecin' => $this->getUser()->getIdPersonne()]);
-
-        $rvs = null;
+        if ($d != null){
+        $rvs = $d->getRendezVouses();
         //la fonction va etre applicable dans base-medecin.html.twig en récupérant deux variables (Medecin, rvs)
         return $this->render('base_medecin.html.twig', array(
             'Medecin' => $medecin,
-            'rvs' => $d->getRendezVouses()
+            'rvs' => $rvs
+        ));}
+        else return $this->render('base_medecin.html.twig', array(
+            'Medecin' => $medecin,
+            'rvs' => null
         ));
     }
 }

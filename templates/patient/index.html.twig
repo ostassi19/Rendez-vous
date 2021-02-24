@@ -23,7 +23,6 @@
                 <th>Pays</th>
                 <th>Region</th>
                 <th>CodePostal</th>
-                <th>Id</th>
                 <th>Cnss</th>
                 <th>Cnrps</th>
                 <th>Actions &emsp;</th>
@@ -42,15 +41,22 @@
                 <td>{{ patient.pays }}</td>
                 <td>{{ patient.region }}</td>
                 <td>{{ patient.codePostal }}</td>
-                <td>{{ patient.id }}</td>
                 <td>{{ patient.cnss }}</td>
                 <td>{{ patient.cnrps }}</td>
                 <td>
-                    <a type="button" class="btn btn-sm btn-success" href="{{ path('patient_show', {'id': patient.id}) }}">Afficher</a>
-                    <a type="button" class="btn btn-sm btn-warning" href="{{ path('patient_edit', {'id': patient.id}) }}">Modifier</a>
-                    <a type="button" class="btn btn-sm btn-warning" href="{{ path('patient_delete', {'id': patient.id}) }}">Supprimer</a>
-                    <a type="button" class="btn btn-sm btn-instagram" href="{{ path('fiche_show_med', {'id': patient.id, 'idMedecin': app.user.idPersonne}) }}">Fiche</a>
-                    <a type="button" class="btn btn-sm btn-facebook" href="{{ path('rendez_vous_patient', {'idPatient': patient.id, 'idMedecin' : app.user.idPersonne}) }}">RV</a>
+                    <a type="button" href="{{ path('patient_show', {'id': patient.id}) }}">
+                        <i class="flaticon-eye text-info"></i>
+                    </a>
+                    <a type="button" href="{{ path('patient_edit', {'id': patient.id}) }}">
+                        <i class="flaticon2-pen text-warning"></i>
+                    </a>
+                    {#<a type="button" class="btn btn-sm btn-warning" href="{{ path('patient_delete', {'id': patient.id}) }}">Supprimer</a>#}
+                    <a type="button" href="{{ path('fiche_show_med', {'id': patient.id, 'idMedecin': app.user.idPersonne}) }}">
+                        <i class="flaticon2-crisp-icons text-success"></i>
+                    </a>
+                    <a type="button" href="{{ path('rendez_vous_patient', {'idPatient': patient.id, 'idMedecin' : app.user.idPersonne}) }}">
+                        <i class="flaticon-calendar-with-a-clock-time-tools text-danger"></i>
+                    </a>
                 </td>
             </tr>
         {% else %}
@@ -61,15 +67,6 @@
         </tbody>
     </table>
     </div>
-    <!--
-    <div class="card-footer">
-        <div class="row">
-            <div class="col-sm-11"></div>
-            <div class="col-sm-1">
-                <a type="button" class="btn btn-bg btn-facebook" href="{{ path('patient_new') }}">Ajouter</a>
-            </div>
-        </div>
-    </div>
-    -->
+
 </div>
 {% endblock %}
