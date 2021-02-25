@@ -142,7 +142,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                 <div class="d-flex align-items-center" id="kt_subheader_search">
                                     <form class="ml-5">
                                         <div class="input-group input-group-sm input-group-solid" style="max-width: 175px">
-                                            <input type="text" class="form-control" id="kt_subheader_search_form" placeholder="Search...">
+                                            <input type="text" class="form-control" id="kt_subheader_search_form" placeholder="Recherche...">
                                             <div class="input-group-append">
                                                             <span class="input-group-text">
                                                                 <span class="svg-icon"><!--begin::Svg Icon | path:assets/media/svg/icons/General/Search.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -210,25 +210,25 @@ License: You must have a valid license purchased only from themeforest(the above
 
                             </div>
 
-{#                            <div class="dropdown dropdown-inline" data-toggle="tooltip" title="" data-placement="left" style=" padding-top: 10px; ">#}
-{#                                <a href="#" class="btn btn-icon btn-light h-40px w-40px" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">#}
-{#                                    <img alt="Logo" src="assets/media/svg/avatars/007-boy-2.svg" class="h-75 align-self-end">#}
-{#                                </a>#}
-{#                                <div class="dropdown-menu p-0 m-0 dropdown-menu-anim-up dropdown-menu-right" style="width: 120px">#}
-{#                                    <!--begin::Naviigation-->#}
-{#                                    <ul class="navi">#}
-{#                                        <li class="navi-header font-weight-bold py-5">#}
-{#                                            <span class="font-size-lg" style="text-align: center">{{ app.user.username | upper }}</span>#}
-{#                                        </li>#}
+                            <div class="dropdown dropdown-inline" data-toggle="tooltip" title="" data-placement="left" style="">
+                                <a href="#" class="btn btn-icon btn-light h-40px w-40px" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <img alt="Logo" src="{{ asset('assets/media/svg/avatars/007-boy-2.svg')}}" class="h-75 align-self-end">
+                                </a>
+                                <div class="dropdown-menu p-0 m-0 dropdown-menu-anim-up dropdown-menu-right" style="width: 120px">
+                                    <!--begin::Naviigation-->
+                                    <ul class="navi">
+                                        <li class="navi-header font-weight-bold py-5">
+                                            <span class="font-size-lg" style="text-align: center">{{ app.user.username | upper }}</span>
+                                        </li>
 
-{#                                        <li class="navi-footer pt-5 pb-4">#}
-{#                                            <a class="btn btn-light-primary font-weight-bolder btn-sm"  href="{{ path('app_logout') }}">Déconnecter</a>#}
-{#                                            <a class="btn btn-clean font-weight-bold btn-sm d-none" href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Click to learn more...">Learn more</a>#}
-{#                                        </li>#}
-{#                                    </ul>#}
-{#                                    <!--end::Naviigation-->#}
-{#                                </div>#}
-{#                            </div>#}
+                                        <li class="navi-footer pt-5 pb-4">
+                                            <a class="btn btn-light-primary font-weight-bolder btn-sm"  href="{{ path('app_logout') }}">Déconnecter</a>
+                                            <a class="btn btn-clean font-weight-bold btn-sm d-none" href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Click to learn more...">Learn more</a>
+                                        </li>
+                                    </ul>
+                                    <!--end::Naviigation-->
+                                </div>
+                            </div>
 
 
                         </div>

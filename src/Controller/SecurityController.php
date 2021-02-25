@@ -44,7 +44,6 @@ class SecurityController extends AbstractController
         }
 
         $session = $this->get('session')->get('_router__');
-        //echo $session;
         $error = $authenticationUtils->getLastAuthenticationError();
         var_dump($error ? $error->getMessage(): '');
         // last username entered by the user

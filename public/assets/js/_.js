@@ -15,7 +15,7 @@ function rv_(id, role,idM) {
         url: "/rendez/vous/ajouter",
         cache: !1,
         success: function(data) {
-            console.log(data);
+           // console.log(data);
             //s'il y a un ulitisateur(patient) connecté alors on va ajouter un rendez-vous
             // sinon on aura une redirection à la page login
             if (data == 1){

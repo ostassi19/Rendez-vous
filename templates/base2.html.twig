@@ -128,7 +128,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                 <div class="d-flex align-items-center" id="kt_subheader_search">
                                     <form class="ml-5">
                                         <div class="input-group input-group-sm input-group-solid" style="max-width: 175px">
-                                            <input type="text" class="form-control" id="kt_subheader_search_form" placeholder="Search...">
+                                            <input type="text" class="form-control" id="kt_subheader_search_form" placeholder="Recherche...">
                                             <div class="input-group-append">
                                                             <span class="input-group-text">
                                                                 <span class="svg-icon"><!--begin::Svg Icon | path:assets/media/svg/icons/General/Search.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -194,10 +194,11 @@ License: You must have a valid license purchased only from themeforest(the above
                                 </div>
                                 <!--end::Group Actions-->
                             </div>
+                            {% if is_granted("ROLE_PATIENT") %}
 
-                            <div class="dropdown dropdown-inline" data-toggle="tooltip" title="" data-placement="left" style=" padding-top: 10px; ">
+                            <div class="dropdown dropdown-inline" data-toggle="tooltip" title="" data-placement="left">
                                 <a href="#" class="btn btn-icon btn-light h-40px w-40px" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <img alt="Logo" src="../public/assets/media/svg/avatars/007-boy-2.svg" class="h-75 align-self-end">
+                                    <img alt="Logo" src="{{ asset('assets/media/svg/avatars/007-boy-2.svg') }}" class="h-75 align-self-end">
                                 </a>
                                 <div class="dropdown-menu p-0 m-0 dropdown-menu-anim-up dropdown-menu-right" style="width: 120px">
                                     <!--begin::Naviigation-->
@@ -214,7 +215,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                     <!--end::Naviigation-->
                                 </div>
                             </div>
-
+                            {% endif %}
                         </div>
                         <!--end::Toolbar-->
                     </div>
@@ -323,15 +324,15 @@ License: You must have a valid license purchased only from themeforest(the above
                                                 <div class="d-flex flex-row-fluid bgi-size-cover bgi-position-center" style="background-image: url('assets/media/bg/bg-9.jpg')">
                                                     <div class=" container-fluid ">
                                                         <!--begin::Topbar-->
-                                                        <div class="d-flex justify-content-between align-items-center border-bottom border-white py-7">
-                                                            <h3 class="h4 text-dark mb-0">
-                                                                Help Center
-                                                            </h3>
-                                                            <div class="d-flex">
-                                                                <a href="#" class="font-size-h6 font-weight-bold">Community</a>
-                                                                <a href="#" class="font-size-h6 font-weight-bold ml-8">Visit Blog</a>
-                                                            </div>
-                                                        </div>
+{#                                                        <div class="d-flex justify-content-between align-items-center border-bottom border-white py-7">#}
+{#                                                            <h3 class="h4 text-dark mb-0">#}
+{#                                                                Help Center#}
+{#                                                            </h3>#}
+{#                                                            <div class="d-flex">#}
+{#                                                                <a href="#" class="font-size-h6 font-weight-bold">Community</a>#}
+{#                                                                <a href="#" class="font-size-h6 font-weight-bold ml-8">Visit Blog</a>#}
+{#                                                            </div>#}
+{#                                                        </div>#}
                                                         <!--end::Topbar-->
                                                         <div class="d-flex align-items-stretch text-center flex-column" style=" padding-top: 30px; padding-bottom: 70px; ">
                                                             <!--begin::Heading-->
@@ -388,11 +389,11 @@ License: You must have a valid license purchased only from themeforest(the above
 
                                                                         <!--begin::Content-->
                                                                         <div class="d-flex flex-column">
-                                                                            <a href="#" class="text-dark text-hover-primary font-weight-bold font-size-h4 mb-3">
-                                                                                Get Started
+                                                                            <a href="{{ path('app_login')}}" class="text-dark text-hover-primary font-weight-bold font-size-h4 mb-3">
+                                                                                Patient
                                                                             </a>
                                                                             <div class="text-dark-75">
-                                                                                Base FAQ Questions
+                                                                                Se connecter
                                                                             </div>
                                                                         </div>
                                                                         <!--end::Content-->
@@ -419,11 +420,12 @@ License: You must have a valid license purchased only from themeforest(the above
 
                                                                         <!--begin::Content-->
                                                                         <div class="d-flex flex-column">
-                                                                            <a href="#" class="text-dark text-hover-primary font-weight-bold font-size-h4 mb-3">
-                                                                                Tutorials
+
+                                                                            <a href="{{ path('app_login')}}" class="text-dark text-hover-primary font-weight-bold font-size-h4 mb-3">
+                                                                                Medecin
                                                                             </a>
                                                                             <div class="text-dark-75">
-                                                                                Books &amp; Articles
+                                                                                Se connecter
                                                                             </div>
                                                                         </div>
                                                                         <!--end::Content-->
@@ -450,11 +452,11 @@ License: You must have a valid license purchased only from themeforest(the above
 
                                                                         <!--begin::Content-->
                                                                         <div class="d-flex flex-column">
-                                                                            <a href="#" class="text-dark text-hover-primary font-weight-bold font-size-h4 mb-3">
-                                                                                User Guide
+                                                                            <a href="{{ path('apropos') }}" class="text-dark text-hover-primary font-weight-bold font-size-h4 mb-3">
+                                                                               A propos
                                                                             </a>
                                                                             <div class="text-dark-75">
-                                                                                Complete Knowledgebase
+                                                                                qui sommes nous?
                                                                             </div>
                                                                         </div>
                                                                         <!--end::Content-->
@@ -478,7 +480,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                                         <!--begin::Pic-->
                                                                         <div class="flex-shrink-0 mr-7">
                                                                             <div class="symbol symbol-50 symbol-lg-120">
-                                                                                <img alt="Pic" src="assets/media//users/300_10.jpg"/>
+                                                                                <img alt="Pic" src="assets/media//users/ee.jpg"/>
                                                                             </div>
                                                                         </div>
                                                                         <!--end::Pic-->
@@ -545,34 +547,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                                                     </a>
                                                                                 </div>
                                                                                 <!--end::Actions-->
-                                                                                <div id="myModal" class="modal fade" role="dialog">
-                                                                                    <div class="modal-dialog">
-                                                                                        <div class="modal-content">
-                                                                                            <div class="modal-header">
-                                                                                                <h4 class="modal-title">Ajouter Catégorie</h4>
-                                                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                                                    <span aria-hidden="true">×</span>
-                                                                                                </button>
-                                                                                            </div>
-                                                                                            <div class="modal-body">
-                                                                                                <div class="form-group">
-                                                                                                    <label>Numéro</label>
-                                                                                                    <input type="text" class="form-control" placeholder="Enter ...">
-                                                                                                </div>
 
-                                                                                                <div class="form-group">
-                                                                                                    <label>Nom</label>
-                                                                                                    <input type="text" class="form-control" placeholder="Enter ...">
-                                                                                                </div>
-
-                                                                                            </div>
-                                                                                            <div class="modal-footer justify-content-between">
-                                                                                                <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                                                                                                <button type="button" class="btn btn-primary">Envoyer</button>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
                                                                             </div>
                                                                             <!--end::Title-->
 
@@ -580,8 +555,8 @@ License: You must have a valid license purchased only from themeforest(the above
                                                                             <div class="d-flex align-items-center flex-wrap justify-content-between">
                                                                                 <!--begin::Description-->
                                                                                 <div class="flex-grow-1 font-weight-bold text-dark-50 py-2 py-lg-2 mr-5">
-                                                                                    I distinguish three main text objectives could be merely to inform people.<br/>
-                                                                                    A second could be persuade people. You want people to bay objective.
+                                                                                    Je suis disponible de Lundi à Samedi de 9h jusqu'à 19h avec une pause de 1 h à 13h .<br/>
+                                                                                    Soyez le bienvenue.
                                                                                 </div>
                                                                                 <!--end::Description-->
 

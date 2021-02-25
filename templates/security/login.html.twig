@@ -1,6 +1,6 @@
 {% extends 'core.html.twig' %}
 
-{% block title %}Log in!{% endblock %}
+{% block title %}Connexion!{% endblock %}
 
 {% block body %}
 <form method="post">
@@ -10,14 +10,14 @@
 
     {% if app.user %}
         <div class="mb-3">
-            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Déconnecter</a>
         </div>
     {% endif %}
 
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-    <label for="inputUsername">Username</label>
+    <h1 class="h3 mb-3 font-weight-normal">Connectez Vous</h1>
+    <label for="inputUsername">Nom Utilisateur</label>
     <input type="text" value="{{ last_username }}" name="_username" id="inputUsername" class="form-control" required autofocus>
-    <label for="inputPassword">Password</label>
+    <label for="inputPassword">Mot de passe</label>
     <input type="password" name="_password" id="inputPassword" class="form-control" required>
 
     <input type="hidden" name="go_to" value="{{ path('accueil') }}"/>
@@ -37,11 +37,11 @@
     #}
 
     <button class="btn btn-lg btn-primary" type="submit">
-        Sign in
+        Se connecter
     </button>
     <!-- to modal -->
     <button class="btn btn-lg btn-danger" onclick="patient_ajouter_()" type="button">
-        Sign up
+        Créer un compte
     </button>
 </form>
 <div  class="modal fade bd-example-modal-lg" id="patient_ajouter" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

@@ -58,10 +58,11 @@ class RendezVousController extends AbstractController
         }
 
         $rvs = $Fiche->getRendezVouses();
-
+        $dates = $this->getDoctrine()->getManager()->getRepository('App:Date')->findAll();
         return $this->render('rendez_vous/index.html.twig', [
             'rendez_vouses' => $rvs,
-            'idPatient' => $idPatient
+            'idPatient' => $idPatient,
+            'Dates' => $dates
         ]);
     }
 

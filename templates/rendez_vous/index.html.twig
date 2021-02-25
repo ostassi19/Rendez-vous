@@ -25,7 +25,7 @@
             <tbody>
         {% for rendez_vou in rendez_vouses %}
             <tr>
-              <td>{{ rendez_vou.id }}</td>
+              <td>{{ loop.index }}</td>
                 <td>{{ rendez_vou.date ? rendez_vou.date|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ rendez_vou.createdAt ? rendez_vou.createdAt|date('Y-m-d H:i:s') : '' }}</td>
 
@@ -40,8 +40,14 @@
         {% endfor %}
         </tbody>
         </table>
-
-    <a class="btn btn-primary mr-2" href="{{ path('rendez_vous_new', {'idPatient': idPatient}) }}">Ajouter</a>
+        {% include "rendez-vous-modal.html.twig" %}
+        <a type="button" class="btn btn-sm btn-primary font-weight-bolder text-uppercase" data-toggle="modal" data-target="#myModal"
+           onclick="rv_({{ app.user.idPersonne }}, {{ app.user ? app.user.roles | json_encode : 0 }}, {{ app.user.idPersonne }})">
+            Ajouter Rendez-vous
+        </a>
+{#    <a class="btn btn-primary mr-2" href="{{ path('rendez_vous_new', {'idPatient': idPatient}) }}">Ajouter</a>#}
     </div>
 </div>
+    <script src="{{ asset('assets/js/_.js') }}"></script>
+
 {% endblock %}
