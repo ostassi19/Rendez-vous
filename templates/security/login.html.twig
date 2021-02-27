@@ -14,11 +14,11 @@
         </div>
     {% endif %}
 
-    <h1 class="h3 mb-3 font-weight-normal">Connectez Vous</h1>
-    <label for="inputUsername">Nom Utilisateur</label>
-    <input type="text" value="{{ last_username }}" name="_username" id="inputUsername" class="form-control" required autofocus>
-    <label for="inputPassword">Mot de passe</label>
-    <input type="password" name="_password" id="inputPassword" class="form-control" required>
+    <h1 class="h3 mb-3 font-weight-normal" style=" text-align: center;"><strong>Se Connecter</strong> </h1>
+    <label for="inputUsername" style=" margin-top: 60px; margin-bottom: 10px; ">Nom Utilisateur</label>
+    <input type="text" value="{{ last_username }}" name="_username" id="inputUsername" class="form-control" style=" margin-top: 10px; margin-bottom: 10px; " required autofocus>
+    <label for="inputPassword" style=" margin-top: 20px; margin-bottom: 20px; ">Mot de passe</label>
+    <input type="password" name="_password" id="inputPassword" class="form-control" style=" margin-top: 10px; margin-bottom: 50px; " required>
 
     <input type="hidden" name="go_to" value="{{ path('accueil') }}"/>
     <input type="hidden" name="_csrf_token"
@@ -36,7 +36,7 @@
         </div>
     #}
 
-    <button class="btn btn-lg btn-primary" type="submit">
+    <button class="btn btn-lg btn-primary" type="submit" style="margin-right: 50px;">
         Se connecter
     </button>
     <!-- to modal -->
