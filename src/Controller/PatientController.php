@@ -108,7 +108,6 @@ class PatientController extends AbstractController
             $entityManager->persist($User);
             $entityManager->flush();
 
-            echo $User->getId();
             $fiche = new Fiche();
             $fiche->setPatient($patient);
             $medecin = $this->getDoctrine()->getRepository('App:Medecin')->find($idMed);

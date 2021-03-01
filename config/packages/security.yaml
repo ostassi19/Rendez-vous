@@ -55,6 +55,7 @@ security:
         - { path: ^/apropos,             role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/rendez/vous/ajouter,             role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/medecin,             role: ROLE_MEDECIN }
+        - { path: ^/patient/ajouter,     role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/patient,             role: ROLE_MEDECIN }
         - { path: ^/,             role: IS_AUTHENTICATED_FULLY }
         #- { path: ^/base, roles: IS_AUTHENTICATED_FULLY } # Allows accessing the Swagger UI IS_AUTHENTICATED_ANONYMOUSLY

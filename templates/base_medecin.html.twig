@@ -340,6 +340,7 @@
                                                 <div class="col-lg-12">
                                                     <!--boucle pour sur les renvdez-vous apporter tous les rendez-vous dans l'acceuil-->
                                                     {% for rv in rvs %}
+                                                        {% if rv.fiche != null %}
                                                         <div class="card card-custom gutter-b">
                                                             <div class="card-body">
                                                                 <!--begin::Top-->
@@ -445,6 +446,7 @@
 
                                                             </div>
                                                         </div>
+                                                        {% endif %}
                                                         <!--end::Col-->
                                                     {% endfor %}
                                                 </div>

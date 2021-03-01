@@ -18,19 +18,19 @@
                 <tr>
                 <th>#</th>
                 <th>Date</th>
-                <th>Date de création</th>
-                <td>patient</td>
+                <th>Heure</th>
+{#                <td>patient</td>#}
             </tr>
             </thead>
             <tbody>
         {% for rendez_vou in rendez_vouses %}
             <tr>
               <td>{{ loop.index }}</td>
-                <td>{{ rendez_vou.date ? rendez_vou.date|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ rendez_vou.createdAt ? rendez_vou.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ rendez_vou.date ? rendez_vou.date.date|date('Y-m-d') : '' }}</td>
+                <td>{{ rendez_vou.heure ? rendez_vou.heure|date('H:i:s') : '' }}</td>
 
-                <td><a href="{{ path('patient_show', {'id': rendez_vou.fiche.patient.id }) }}">
-                        {{ rendez_vou.fiche.patient.nom }} {{ rendez_vou.fiche.patient.prenom }}</a></td>
+{#                <td><a href="{{ path('patient_show', {'id': rendez_vou.fiche.patient.id }) }}">#}
+{#                        {{ rendez_vou.fiche.patient.nom }} {{ rendez_vou.fiche.patient.prenom }}</a></td>#}
 
             </tr>
         {% else %}
@@ -41,7 +41,7 @@
         </tbody>
         </table>
         {% include "rendez-vous-modal.html.twig" %}
-        <a type="button" class="btn btn-sm btn-primary font-weight-bolder text-uppercase" data-toggle="modal" data-target="#myModal"
+        <a type="button" class="btn btn-sm btn-primary font-weight-bolder text-uppercase"
            onclick="rv_({{ app.user.idPersonne }}, {{ app.user ? app.user.roles | json_encode : 0 }}, {{ app.user.idPersonne }})">
             Ajouter Rendez-vous
         </a>

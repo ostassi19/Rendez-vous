@@ -90,7 +90,7 @@ class Date
 
     function __toString()
     {
-        return $this->getDate()->format('d-m-Y');
+        return $this->getId().'';//->format('d-m-Y');
     }
 
     public function getMedecin(): ?Medecin

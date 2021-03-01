@@ -31,7 +31,9 @@ class medecinController extends Controller
                     $rvs->add($rv);
             }
         }*/
-        $d = $em->getRepository('App:Date')->findOneBy(['date' => new \DateTime(), 'medecin' => $this->getUser()->getIdPersonne()]);
+        $d = $em->getRepository('App:Date')->findOneBy([
+            'date' => new \DateTime(),
+            'medecin' => $this->getUser()->getIdPersonne()]);
         if ($d != null){
         $rvs = $d->getRendezVouses();
         //la fonction va etre applicable dans base-medecin.html.twig en récupérant deux variables (Medecin, rvs)

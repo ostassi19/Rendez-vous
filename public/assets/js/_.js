@@ -19,8 +19,8 @@ function rv_(id, role,idM) {
             //s'il y a un ulitisateur(patient) connecté alors on va ajouter un rendez-vous
             // sinon on aura une redirection à la page login
             if (data == 1){
-                //$("#myModal").modal('show');
-              // window.location.href = '/rendez/vous/new/'+id;
+                $("#myModal").modal('show');
+              // window.locationrv_.href = '/rendez/vous/new/'+id;
                 //$("#loader").hide();
             } else window.location.href = '/login';
             //$('#form_ajout_fourniture').html(data);
@@ -52,6 +52,7 @@ function patient_ajouter_(action = false, idMedecin) {
             url: "/patient/ajouter",
             cache: !1,
             success: function (data) {
+                console.log(data);
               //  console.log(name, username, email, password, newpassword);
                 $('#patient_a').html(data);
                 $('#patient_ajouter').modal('show');
